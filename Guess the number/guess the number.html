@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            border: 2px;
+            border-style: solid;
+            display:inline-block;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:30rem;
+            height: 20rem;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border: none;
+        }
+        #num {
+            width: 20rem;
+            height: 1.5rem;
+            display: inline;
+            border-radius: 7px;
+            border-style: solid;
+            border-color: darkgray;
+            margin-top: 2px;
+        }
+        button {
+            border-radius: 5px;
+            width: 8rem;
+            height:2rem;
+            margin-top: 2px;
+            border-style: groove;
+            border-color: rgb(42, 165, 155);
+            background-color: white;
+        }
+        h2,h3,p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>GUESS THE NUMBER 1 TO 10</h2>
+        <input type="number" id="num" min="1" max="10">
+        <button onclick="checknum()">Check</button>
+        <h3>RESULT</h3>
+        <p id="res"></p>
+        <h3 id="score">SCORE:10</h3>
+    </div>
+</body>
+<script>
+    var num=document.getElementById("num")
+    var generate=Math.floor(Math.random()*10)
+    console.log(generate)
+    var re=document.getElementById("res")
+    var total=document.getElementById("score")
+    score=10
+    function checknum() 
+    {
+        var enterednum=Number(num.value)
+        if (enterednum==generate) {
+            re.textContent="RIGHT"
+            alert("You won")
+        }
+        else {
+            score=score-1
+            re.textContent="WRONG"
+            total.textContent="SCORE:"+score
+        }
+
+    }
+</script>
+</html>
